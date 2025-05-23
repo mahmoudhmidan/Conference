@@ -1,7 +1,25 @@
+@import './fonts.css'; 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+.lang-ar body {
+  font-family: 'Droid-Arabic-Kufi', sans-serif;
+}
+
+.lang-ar h1, .lang-ar h2, .lang-ar h3, .lang-ar .heading,a,button {
+  font-family: 'etab', sans-serif;
+  font-size: 20px;
+}
+
+
+.lang-en body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.lang-en h1, .lang-en h2, .lang-en h3, .lang-en .heading {
+  font-family: 'Figtree', sans-serif;
+}
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

@@ -15,6 +15,9 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                etab: ['etab', ...defaultTheme.fontFamily.sans],
+                kufi: ['Droid-Arabic-Kufi', ...defaultTheme.fontFamily.sans],
+                english: ['Roboto', 'sans-serif'],
             },
         },
     },
