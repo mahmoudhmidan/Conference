@@ -1,0 +1,10 @@
+{
+ "navbar": {
+    "home": "Home",
+    "about_us": "About Us",
+    "our_services": "Our Services",
+    "map": "Map",
+    "contact_us": "Contact Us",
+    "book_consultation": "Book a Consultation"
+  }
+}
