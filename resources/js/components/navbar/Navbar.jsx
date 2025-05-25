@@ -40,7 +40,7 @@ const Navbar = forwardRef((props, ref) => {
 
 
   return (
-    <nav  role="navigation" className="relative  bg-teal-50 h-28 flex justify-between items-center py-6 px-8 md:px-32">
+    <nav  role="navigation" className="relative heading bg-teal-50 h-28 flex justify-between items-center py-6 px-8 md:px-32">
       {/* Logo Section */}
       <div className='text-3xl flex items-center gap-2  font-bold py-8 uppercase'>
         <img src={logo} className='w-80' alt="Logo" />
@@ -50,10 +50,14 @@ const Navbar = forwardRef((props, ref) => {
             <ul className='hidden xl:flex items-center gap-6 text-green-950'>
         {NavbarLinks.map(links => (
           <li key={links.id}>
-            {links.type === 'link' ? (
-              <Link
-                href={links.link}
-                className='inline-block py-1 px-1 font-semibold hover:text-teal-600 transition-all cursor-pointer'>
+
+            {/* handle scroll */}
+            {links.link === '/' ? (
+              <Link 
+                href={links.link} 
+                data-testid={`navbar-link-${links.id}`} 
+                className='inline-block py-1 px-1  text-xl font-semibold hover:text-teal-600 transition-all cursor-pointer'>
+
                 {links.title}
               </Link>
             ) : links.type === 'external' ? (
@@ -65,9 +69,11 @@ const Navbar = forwardRef((props, ref) => {
                 {links.title}
               </a>
             ) : (
-              <button
-                onClick={() => handleScroll(links.link)}
-                className='inline-block py-1 px-1 font-semibold hover:text-teal-600 transition-all cursor-pointer'>
+              <button 
+                data-testid={`navbar-link-${links.id}`} 
+                onClick={() => handleScroll(links.link)} 
+                className='inline-block py-1 px-1 text-xl font-semibold hover:text-teal-600 transition-all cursor-pointer'>
+
                 {links.title}
               </button>
             )}
@@ -76,7 +82,7 @@ const Navbar = forwardRef((props, ref) => {
       </ul>
       {/* Buttons Section */}
       <div className='relative hidden md:flex gap-2'>
-        <button className='text-neutral-50 rounded-md  font-medium bg-teal-600 px-6 py-2 duration-200 hover:bg-teal-800 hidden md:block'>
+        <button className='text-neutral-50 rounded-md text-xl font-medium bg-teal-600 px-6 py-2 duration-200 hover:bg-teal-800 hidden md:block'>
          {t('navbar.book_consultation')}
         </button>
        <LanguageDropdown/>
@@ -98,10 +104,14 @@ const Navbar = forwardRef((props, ref) => {
       >
         {NavbarLinks.map(links => (
           <li className='list-none w-full text-center p-4 transition-all cursor-pointer' key={links.id}>
-            {links.type === 'link' ? (
-              <Link
-                href={links.link}
-                className='inline-block py-1 px-1 font-semibold hover:bg-teal-800 transition-all cursor-pointer'>
+
+            {/* handle scroll */}
+            {links.link === '/' ? (
+              <Link 
+                href={links.link} 
+                data-testid={`Hamburger-link-${links.id}`} 
+                className='inline-block py-1 px-1 text-xl font-semibold hover:bg-teal-800 transition-all cursor-pointer'>
+
                 {links.title}
               </Link>
             ) : links.type === 'external' ? (
@@ -113,12 +123,12 @@ const Navbar = forwardRef((props, ref) => {
                 {links.title}
               </a>
             ) : (
-              <button
-                onClick={() => {
-                  handleScroll(links.link);
-                  setIsMenuOpen(false);
-                }}
-                className='inline-block py-1 px-1 font-semibold hover:bg-teal-800 transition-all cursor-pointer'>
+
+              <button 
+                data-testid={`Hamburger-link-${links.id}`} 
+                onClick={() => handleScroll(links.link)} 
+                className='inline-block py-1 px-1 text-xl font-semibold hover:bg-teal-800 transition-all cursor-pointer'>
+
                 {links.title}
               </button>
             )}

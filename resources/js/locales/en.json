@@ -7,4 +7,95 @@
     "contact_us": "Contact Us",
     "book_consultation": "Book a Consultation"
   }
+  ,"about": {
+  "title": "About Us",
+  "description": "At Adala Legal Office, we believe that justice is a right for all. We are dedicated to providing comprehensive legal services with high quality and professional standards. Our areas of expertise include criminal cases, civil lawsuits, legal consultations, and legal representation before all courts and official institutions. Our team includes a select group of experienced lawyers and consultants united by a common goal: to defend our clients’ rights and offer effective legal solutions tailored to each case.",
+  "button": "Book a Consultation",
+  "stats": {
+    "cases": "Successful Cases",
+    "years": "Years of Experience",
+    "clients": "Satisfied Clients",
+    "team": "Specialized Lawyers"
+  },
+  "features": {
+    "quality": "High-quality and precise consultation",
+    "experience": "Highly experienced team",
+    "trust": "Credibility and transparency",
+    "success": "High success rate"
+  }
+}
+,
+  
+  "services": {
+    "title": "What We Offer",
+    "description": "Explore a wide range of legal services designed to support individuals and businesses with professional and reliable legal expertise.",
+    "items": {
+      "legal_claims": {
+        "name": "Legal Claims",
+        "text": "Comprehensive legal representation in personal status cases such as divorce, alimony, custody, and inheritance."
+      },
+      "criminal_cases": {
+        "name": "Criminal Cases",
+        "text": "Defense before criminal courts in all matters related to felonies and criminal offenses."
+      },
+      "immigration": {
+        "name": "Residency & Immigration",
+        "text": "Legal services for obtaining residency, travel visas, and resolving immigration issues."
+      },
+      "contracts": {
+        "name": "Commercial Contracts",
+        "text": "Drafting and reviewing commercial contracts to protect your business interests."
+      },
+      "companies": {
+        "name": "Companies",
+        "text": "Company formation, partnership agreements, and resolving commercial disputes."
+      },
+      "customs": {
+        "name": "Customs",
+        "text": "Handling customs cases and disputes related to border and import/export transactions."
+      },
+      "consultation": {
+        "name": "Legal Consultations",
+        "text": "Clear and quick legal advice tailored to your case."
+      }
+    }
+  },
+  "map": {
+    "title": "Contact Us",
+    "description": "We are always here to serve you. Feel free to reach out to us through the following channels.",
+    "location": "Baghdad - Palestine Street - Near the Court",
+    "hours": "Sunday to Thursday, 9:00 AM - 4:00 PM",
+    "phone": "0770 000 0000",
+    "email": "contact@lawfirm.com"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "description": "We’d love to hear from you! Please reach out with any questions or inquiries, and we will get back to you as soon as possible.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send Message"
+  },
+   "footer": {
+    "description": "At Adala Legal Office, we believe that justice is a right for all.",
+    "company": "Company",
+    "contact": "Contact Us",
+   "links": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services"
+   
+  },
+    "contactList": {
+      "email": "Email: support@example.com",
+      "phone": "Phone: +1 123 456 7890",
+      "address": "Address: 123 Main Street, City, Country"
+    },
+    "policies": "Policies",
+    "policyLinks": ["Privacy Policy", "Terms of Service", "Insurance Policy"],
+    "social": "Social Media",
+    "copyright": "Copyright © 2024 Powered by CodeBox."
+  }
+
+
 }
