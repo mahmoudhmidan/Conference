@@ -13,7 +13,12 @@ const Navbar = forwardRef((props, ref) => {
     { id: 2, title: t('navbar.about_us'), link: 'about' },
     { id: 3, title: t('navbar.our_services'), link: 'services' },
     { id: 4, title: t('navbar.map'), link: 'map' },
-    { id: 5, title: t('navbar.contact_us'), link: 'contact_us' },
+    {
+    id: 5,
+    title: t('navbar.contact_us'),
+    link: 'https://wa.me/9647702321705',
+    type: 'external'
+  },
     ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -42,25 +47,31 @@ const Navbar = forwardRef((props, ref) => {
       </div>
 
       {/* Links Section */}
-      <ul className='hidden xl:flex items-center gap-6 text-green-950'>
+            <ul className='hidden xl:flex items-center gap-6 text-green-950'>
         {NavbarLinks.map(links => (
           <li key={links.id}>
+
             {/* handle scroll */}
             {links.link === '/' ? (
               <Link 
                 href={links.link} 
                 data-testid={`navbar-link-${links.id}`} 
-                className={`inline-block py-1 px-1 font-semibold ${i18n.language === 'ar' ? 'text-xl' : 'text-[14px]'} hover:text-teal-600 transition-all cursor-pointer`}>
+                className='inline-block py-1 px-1  text-xl font-semibold hover:text-teal-600 transition-all cursor-pointer'>
                 {links.title}
               </Link>
+            ) : links.type === 'external' ? (
+              <a
+                href={links.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className='inline-block py-1 px-1 font-semibold hover:text-teal-600 transition-all cursor-pointer'>
+                {links.title}
+              </a>
             ) : (
               <button 
                 data-testid={`navbar-link-${links.id}`} 
                 onClick={() => handleScroll(links.link)} 
-                className={`inline-block py-1 px-1 
-                  font-semibold ${i18n.language === 'ar' ? 'text-xl' : 'text-[14px]'}
-  }
-                   hover:text-teal-600 transition-all cursor-pointer`}>
+                className='inline-block py-1 px-1 text-xl font-semibold hover:text-teal-600 transition-all cursor-pointer'>
                 {links.title}
               </button>
             )}
@@ -68,15 +79,13 @@ const Navbar = forwardRef((props, ref) => {
         ))}
       </ul>
 
- {/* Buttons Section */}
-<div className='relative hidden md:flex gap-2 items-center'>
-  <button className={`text-neutral-50 
-  rounded-md font-semibold ${i18n.language === 'ar' ? 'text-xl' : 'text-[14px]'} bg-gradient-to-r from-[#65db9a] to-[#2e9a82]
-   hover:from-[#66c293] hover:to-[#3f9a72] px-6 py-2 duration-200`}>
-    {t('navbar.book_consultation')}
-  </button>
-  <LanguageDropdown />
-</div>
+      {/* Buttons Section */}
+      <div className='relative hidden md:flex gap-2'>
+        <button className='text-neutral-50 rounded-md text-xl font-medium bg-teal-600 px-6 py-2 duration-200 hover:bg-teal-800 hidden md:block'>
+         {t('navbar.book_consultation')}
+        </button>
+       <LanguageDropdown/>
+      </div>
 
  {/* Mobile icons: language + menu */}
       <div className="flex items-center gap-3 md:hidden">
@@ -92,27 +101,43 @@ const Navbar = forwardRef((props, ref) => {
 
       {/* Mobile Menu */}
       <div 
-        className={`absolute xl:hidden w-full z-30 top-28 left-0 bg-white flex flex-col items-center gap-6 transition-all duration-300
-          ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}
+        role='menu-icon' 
+        className={`absolute xl:hidden w-full z-10 top-28 rounded-md left-0 bg-white flex flex-col items-center gap-6 
+        transform transition-transform ${isMenuOpen ? 'opacity-100' : 'opacity-0'}`}
+        style={{ transform: 'transform 0.3s ease, opacity 0.3s ease' }}
       >
         {NavbarLinks.map(links => (
-          <li className="list-none w-full text-center p-4" key={links.id}>
+          <li className='list-none w-full text-center p-4 transition-all cursor-pointer' key={links.id}>
+            {/* handle scroll */}
             {links.link === '/' ? (
               <Link 
                 href={links.link} 
-                onClick={() => setIsMenuOpen(false)}
-                className={`inline-block font-semibold ${i18n.language === 'ar' ? 'text-xl' : 'text-base'} hover:text-teal-800 transition-all`}>
+                data-testid={`Hamburger-link-${links.id}`} 
+                className='inline-block py-1 px-1 text-xl font-semibold hover:bg-teal-800 transition-all cursor-pointer'>
                 {links.title}
               </Link>
+            ) : links.type === 'external' ? (
+              <a
+                href={links.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className='inline-block py-1 px-1 font-semibold hover:bg-teal-800 transition-all cursor-pointer'>
+                {links.title}
+              </a>
             ) : (
+
               <button 
                 onClick={() => handleScroll(links.link)} 
-                className={`inline-block font-semibold ${i18n.language === 'ar' ? 'text-xl' : 'text-base'} hover:text-teal-800 transition-all`}>
+                className='inline-block py-1 px-1 text-xl font-semibold hover:bg-teal-800 transition-all cursor-pointer'>
                 {links.title}
               </button>
             )}
           </li>
         ))}
+        {/* Language Dropdown added here */}
+  <div className="mb-4">
+    <LanguageDropdown />
+  </div>
       </div>
     </nav>
   );
