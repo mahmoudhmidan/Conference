@@ -6,12 +6,12 @@ import LanguageDropdown from './LanguageDropdown';
 import { useTranslation } from 'react-i18next';
 
 const Navbar = forwardRef((props, ref) => {
-    const { t } = useTranslation();
+    const { t,i18n } = useTranslation();
 
     const NavbarLinks = [
     { id: 1, title: t('navbar.home'), link: '/' },
     { id: 2, title: t('navbar.about_us'), link: 'about' },
-    { id: 3, title: t('navbar.our_services'), link: 'our_services' },
+    { id: 3, title: t('navbar.our_services'), link: 'services' },
     { id: 4, title: t('navbar.map'), link: 'map' },
     { id: 5, title: t('navbar.contact_us'), link: 'contact_us' },
     ];
@@ -35,10 +35,10 @@ const Navbar = forwardRef((props, ref) => {
 
 
   return (
-    <nav  role="navigation" className="relative heading bg-teal-50 h-28 flex justify-between items-center py-6 px-8 md:px-32">
+    <nav  role="navigation" className="relative heading bg-gradient-to-b from-[#E6F4EA] via-[#F4FBF7] to-[#FFFFFF] h-28 flex justify-between items-center py-6 px-8 md:px-32">
       {/* Logo Section */}
-      <div className='text-3xl flex items-center gap-2  font-bold py-8 uppercase'>
-        <img src={logo} className='w-80' alt="Logo" />
+      <div className=' flex items-center gap-2  font-bold py-8 uppercase'>
+        <img src={logo} className='lg:w-72 w-40' alt="Logo" />
       </div>
 
       {/* Links Section */}
@@ -50,14 +50,17 @@ const Navbar = forwardRef((props, ref) => {
               <Link 
                 href={links.link} 
                 data-testid={`navbar-link-${links.id}`} 
-                className='inline-block py-1 px-1  text-xl font-semibold hover:text-teal-600 transition-all cursor-pointer'>
+                className={`inline-block py-1 px-1 font-semibold ${i18n.language === 'ar' ? 'text-xl' : 'text-[14px]'} hover:text-teal-600 transition-all cursor-pointer`}>
                 {links.title}
               </Link>
             ) : (
               <button 
                 data-testid={`navbar-link-${links.id}`} 
                 onClick={() => handleScroll(links.link)} 
-                className='inline-block py-1 px-1 text-xl font-semibold hover:text-teal-600 transition-all cursor-pointer'>
+                className={`inline-block py-1 px-1 
+                  font-semibold ${i18n.language === 'ar' ? 'text-xl' : 'text-[14px]'}
+  }
+                   hover:text-teal-600 transition-all cursor-pointer`}>
                 {links.title}
               </button>
             )}
@@ -65,43 +68,46 @@ const Navbar = forwardRef((props, ref) => {
         ))}
       </ul>
 
-      {/* Buttons Section */}
-      <div className='relative hidden md:flex gap-2'>
-        <button className='text-neutral-50 rounded-md text-xl font-medium bg-teal-600 px-6 py-2 duration-200 hover:bg-teal-800 hidden md:block'>
-         {t('navbar.book_consultation')}
-        </button>
-       <LanguageDropdown/>
-      </div>
+ {/* Buttons Section */}
+<div className='relative hidden md:flex gap-2 items-center'>
+  <button className={`text-neutral-50 
+  rounded-md font-semibold ${i18n.language === 'ar' ? 'text-xl' : 'text-[14px]'} bg-gradient-to-r from-[#65db9a] to-[#2e9a82]
+   hover:from-[#66c293] hover:to-[#3f9a72] px-6 py-2 duration-200`}>
+    {t('navbar.book_consultation')}
+  </button>
+  <LanguageDropdown />
+</div>
 
-      {/* Hamburger Menu Section */}
-      <IoMenu 
-        role='menu' 
-        className='xl:hidden block text-5xl text-blue-950 cursor-pointer'
-        onClick={() => setIsMenuOpen(!isMenuOpen)} 
-      />
+ {/* Mobile icons: language + menu */}
+      <div className="flex items-center gap-3 md:hidden">
+        <div className="text-green-900 text-2xl">
+          <LanguageDropdown />
+        </div>
+        <IoMenu 
+          role="menu" 
+          className="text-4xl text-blue-950 cursor-pointer"
+          onClick={() => setIsMenuOpen(!isMenuOpen)} 
+        />
+      </div>
 
       {/* Mobile Menu */}
       <div 
-        role='menu-icon' 
-        className={`absolute xl:hidden w-full z-10 top-28 rounded-md left-0 bg-white flex flex-col items-center gap-6 
-        transform transition-transform ${isMenuOpen ? 'opacity-100' : 'opacity-0'}`}
-        style={{ transform: 'transform 0.3s ease, opacity 0.3s ease' }}
+        className={`absolute xl:hidden w-full z-30 top-28 left-0 bg-white flex flex-col items-center gap-6 transition-all duration-300
+          ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}
       >
         {NavbarLinks.map(links => (
-          <li className='list-none w-full text-center p-4 transition-all cursor-pointer' key={links.id}>
-            {/* handle scroll */}
+          <li className="list-none w-full text-center p-4" key={links.id}>
             {links.link === '/' ? (
               <Link 
                 href={links.link} 
-                data-testid={`Hamburger-link-${links.id}`} 
-                className='inline-block py-1 px-1 text-xl font-semibold hover:bg-teal-800 transition-all cursor-pointer'>
+                onClick={() => setIsMenuOpen(false)}
+                className={`inline-block font-semibold ${i18n.language === 'ar' ? 'text-xl' : 'text-base'} hover:text-teal-800 transition-all`}>
                 {links.title}
               </Link>
             ) : (
               <button 
-                data-testid={`Hamburger-link-${links.id}`} 
                 onClick={() => handleScroll(links.link)} 
-                className='inline-block py-1 px-1 text-xl font-semibold hover:bg-teal-800 transition-all cursor-pointer'>
+                className={`inline-block font-semibold ${i18n.language === 'ar' ? 'text-xl' : 'text-base'} hover:text-teal-800 transition-all`}>
                 {links.title}
               </button>
             )}

@@ -20,18 +20,18 @@ export default function About() {
   ];
 
   return (
-    <section className="flex flex-col md:flex-row gap-10 items-start px-6 py-16 bg-white">
+    <section id='about' className="flex flex-col md:flex-row gap-10 items-start px-6 py-16 bg-white">
       
      
       <div className="flex lg:flex-row flex-col items-center gap-4">
   
-        <div className="flex lg:flex-col gap-4">
+        <div className="flex lg:flex-col gap-3">
           {stats.map((item, idx) => (
-            <div key={idx} className="bg-emerald-700 lg:w-32 lg:h-32 w-24 h-24 rounded-lg flex flex-col justify-center items-center text-white shadow-lg">
-              <span className="text-2xl font-bold">
+            <div key={idx} className="bg-gradient-to-b from-[#4db69d] to-[#0da886]  hover:from-[#73ce9f] hover:to-[#3f9a92]  lg:w-32 lg:h-32 w-16 h-16 rounded-lg flex flex-col justify-center items-center text-white shadow-lg">
+              <span className="lg:text-2xl font-bold text-sm ">
                 <CountUp end={item.number} duration={2} />+
               </span>
-              <p className="text-sm text-center">{item.label}</p>
+              <p className="lg:text-sm text-[10px] text-center ">{item.label}</p>
             </div>
           ))}
         </div>
@@ -40,7 +40,7 @@ export default function About() {
 
      
      <div className="flex-1 text-start space-y-6">
-        <h2 className="text-3xl font-bold text-emerald-950">
+        <h2 className="text-3xl font-bold bg-gradient-to-r from-[#2E7D59] to-[#4FAF7A] bg-clip-text text-transparent">
           {t('about.title')}
         </h2>
         <p className="text-gray-600  leading-snug text-lg max-w-xl">
@@ -51,14 +51,14 @@ export default function About() {
         <ul className="flex flex-wrap flex-row">
           {features.map((feature, idx) => (
             <li key={idx} className="flex items-center w-1/2 mb-8 text-gray-700">
-              <FaCheckCircle className="w-5 h-5  text-emerald-950 mr-2 ml-2" />
+              <FaCheckCircle className="w-5 h-5  text-[#3fb297] hover:text-[#3f9a92]  mr-2 ml-2" />
               {feature}
             </li>
           ))}
         </ul>
 
        
-        <button className="mt-4 bg-emerald-700 hover:bg-emerald-800 text-white px-10 py-4 rounded transition">
+        <button className="mt-4 bg-gradient-to-r from-[#65db9a] to-[#2e9a82]  hover:from-[#66c293] hover:to-[#3f9a72] text-white px-10 py-4 rounded transition">
           {t('about.button')}
         </button>
       </div>

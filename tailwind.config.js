@@ -11,6 +11,10 @@ export default {
         './resources/js/**/*.js',
         './resources/js/**/*.jsx',
     ],
+     safelist: [
+    'lang-ar:text-xl',
+    'lang-en:text-base'
+  ],
     theme: {
         extend: {
             fontFamily: {
@@ -18,6 +22,7 @@ export default {
                 etab: ['etab', ...defaultTheme.fontFamily.sans],
                 kufi: ['Droid-Arabic-Kufi', ...defaultTheme.fontFamily.sans],
                 english: ['Roboto', 'sans-serif'],
+                fontSize: ['lang-ar', 'lang-en'],
             },
         },
     },
