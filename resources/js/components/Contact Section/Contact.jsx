@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import contactImage from '../../assets/contact.jpg';
 import { useTranslation } from 'react-i18next';
 import emailjs from '@emailjs/browser';
@@ -13,6 +13,8 @@ export default function Contact() {
     message: '',
   });
 
+  const [statusMessage, setStatusMessage] = useState({ type: '', text: '' });
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
@@ -24,25 +26,54 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm(
-      'service_y4xjw66',       // Replace with your EmailJS service ID
-      'template_0dh341h',      // Replace with your EmailJS template ID
-      form.current,
-      'qauJAOZGI6kMuq-SF'        // Replace with your EmailJS public key
-    ).then(
-      (result) => {
-        alert('Message sent successfully!');
-        setFormData({ name: '', email: '', message: '' });
-      },
-      (error) => {
-        alert('Failed to send message. Please try again.');
-        console.error(error.text);
-      }
-    );
+    emailjs
+      .sendForm(
+        'service_y4xjw66',
+        'template_0dh341h',
+        form.current,
+        'qauJAOZGI6kMuq-SF'
+      )
+      .then(
+        () => {
+          setStatusMessage({
+            type: 'success',
+            text: '✅ Your message has been sent successfully!',
+          });
+          setFormData({ name: '', email: '', message: '' });
+        },
+        () => {
+          setStatusMessage({
+            type: 'error',
+            text: '❌ Failed to send your message. Please try again.',
+          });
+        }
+      );
   };
 
+  useEffect(() => {
+    if (statusMessage.text) {
+      const timer = setTimeout(() => {
+        setStatusMessage({ type: '', text: '' });
+      }, 4000);
+      return () => clearTimeout(timer);
+    }
+  }, [statusMessage]);
+
   return (
-    <section id="contact_us" data-testid="contact_us" className="mt-20 mb-20 px-4">
+    <section id="contact_us" data-testid="contact_us" className="mt-20 mb-20 px-4 relative">
+      {/* Floating Message */}
+      {statusMessage.text && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          <div
+            className={`px-6 py-4 rounded-lg shadow-lg text-white text-center max-w-md w-full mx-4
+              ${statusMessage.type === 'success' ? 'bg-green-600' : 'bg-red-600'}
+              animate-fadeIn`}
+          >
+            <p className="text-lg font-medium">{statusMessage.text}</p>
+          </div>
+        </div>
+      )}
+
       <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
         <div className="w-full lg:w-1/2 flex flex-col items-start text-start">
           <h1 className="text-3xl font-bold uppercase bg-gradient-to-r from-[#2E7D59] to-[#4FAF7A] bg-clip-text text-transparent">
