@@ -6,7 +6,7 @@ export default function Map() {
   const { t } = useTranslation();
 
   return (
-    <section className="flex flex-col lg:flex-row w-full rounded px-4 py-12 bg-slate-100 gap-8 items-start">
+    <section id="map" className="flex flex-col lg:flex-row w-full rounded px-8 h-[40rem] py-12 bg-gradient-to-b from-[#E6F4EA] via-[#F4FBF7] to-[#FFFFFF] gap-8 items-start">
       
       
       <div className="w-full lg:w-1/2 h-72 sm:h-80 md:h-96 rounded-lg overflow-hidden shadow-lg">
@@ -23,7 +23,7 @@ export default function Map() {
 
     
       <div className="w-full lg:w-1/2 space-y-6 text-start">
-        <h2 className="text-2xl md:text-3xl font-bold text-emerald-900">{t('map.title')}</h2>
+        <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#2E7D59] to-[#4FAF7A] bg-clip-text text-transparent">{t('map.title')}</h2>
         
         <p className="text-gray-700 leading-relaxed text-base md:text-lg">
           {t('map.description')}
