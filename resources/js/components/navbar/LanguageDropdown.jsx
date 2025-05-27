@@ -49,7 +49,7 @@ export default function LanguageDropdown() {
             <button
               onClick={() => changeLanguage("en")}
               className={`block w-full px-4 py-2 font-semibold ${
-                 i18n.language === 'ar' ? 'text-xl' : 'text-[14px]'
+                 i18n.language === 'ar' ? 'text-xl' : 'text-[12px]'
               } text-gray-700 hover:bg-teal-100 text-left`}
             >
               English
@@ -57,7 +57,7 @@ export default function LanguageDropdown() {
             <button
               onClick={() => changeLanguage("ar")}
               className={`block w-full px-4 py-2 font-semibold ${
-                 i18n.language === 'ar' ? 'text-xl' : 'text-[14px]'
+                 i18n.language === 'ar' ? 'text-xl' : 'text-[12px]'
               } text-gray-700 hover:bg-teal-100 text-left`}
             >
               العربية
