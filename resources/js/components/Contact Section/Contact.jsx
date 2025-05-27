@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import contactImage from '../../assets/contact.jpg';
 import { useTranslation } from 'react-i18next';
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
   const { t } = useTranslation();
+  const form = useRef();
 
   const [formData, setFormData] = useState({
     name: '',
@@ -21,26 +23,43 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+
+    emailjs.sendForm(
+      'service_y4xjw66',       // Replace with your EmailJS service ID
+      'template_0dh341h',      // Replace with your EmailJS template ID
+      form.current,
+      'qauJAOZGI6kMuq-SF'        // Replace with your EmailJS public key
+    ).then(
+      (result) => {
+        alert('Message sent successfully!');
+        setFormData({ name: '', email: '', message: '' });
+      },
+      (error) => {
+        alert('Failed to send message. Please try again.');
+        console.error(error.text);
+      }
+    );
   };
 
   return (
     <section id="contact_us" data-testid="contact_us" className="mt-20 mb-20 px-4">
       <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
-
         <div className="w-full lg:w-1/2 flex flex-col items-start text-start">
-          <h1 className=" text-3xl font-bold uppercase  bg-gradient-to-r from-[#2E7D59] to-[#4FAF7A] bg-clip-text text-transparent">{t('contact.title')}</h1>
+          <h1 className="text-3xl font-bold uppercase bg-gradient-to-r from-[#2E7D59] to-[#4FAF7A] bg-clip-text text-transparent">
+            {t('contact.title')}
+          </h1>
           <p className="text-gray-600 text-md mt-2 mb-4 leading-relaxed">
             {t('contact.description')}
           </p>
           <img
             src={contactImage}
             alt="Contact Us"
-            className=" mt-4 rounded-md shadow-md object-fit h-96 w-full "
+            className="mt-4 rounded-md shadow-md object-fit h-96 w-full"
           />
         </div>
 
         <form
+          ref={form}
           onSubmit={handleSubmit}
           className="w-full lg:w-1/2 bg-gradient-to-b from-[#E6F4EA] via-[#F4FBF7] to-[#FFFFFF] shadow-md p-8 rounded-md mt-10 lg:mt-0"
         >
@@ -55,8 +74,8 @@ export default function Contact() {
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                className="w-full p-3 border-2 bg-transparent border-[#97cac2ee] rounded-md outline-none focus:ring focus:ring-gray-100b"
                 required
+                className="w-full p-3 border-2 bg-transparent border-[#97cac2ee] rounded-md outline-none focus:ring focus:ring-gray-100"
               />
             </div>
 
@@ -70,8 +89,8 @@ export default function Contact() {
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                className="w-full p-3 border-2 bg-transparent border-[#97cac2ee] rounded-md outline-none focus:ring focus:ring-gray-100"
                 required
+                className="w-full p-3 border-2 bg-transparent border-[#97cac2ee] rounded-md outline-none focus:ring focus:ring-gray-100"
               />
             </div>
 
@@ -84,15 +103,15 @@ export default function Contact() {
                 name="message"
                 value={formData.message}
                 onChange={handleInputChange}
-                className="w-full p-3 border-2 bg-transparent border-[#97cac2ee] rounded-md outline-none focus:ring focus:ring-gray-100"
                 rows="6"
                 required
+                className="w-full p-3 border-2 bg-transparent border-[#97cac2ee] rounded-md outline-none focus:ring focus:ring-gray-100"
               ></textarea>
             </div>
 
             <button
               type="submit"
-              className="w-full py-3 mt-4 text-white bg-gradient-to-r from-[#65db9a] to-[#2e9a82]  hover:from-[#66c293] hover:to-[#3f9a72]  rounded-md transition duration-300"
+              className="w-full py-3 mt-4 text-white bg-gradient-to-r from-[#65db9a] to-[#2e9a82] hover:from-[#66c293] hover:to-[#3f9a72] rounded-md transition duration-300"
             >
               {t('contact.send')}
             </button>
