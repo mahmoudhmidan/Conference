@@ -94,7 +94,7 @@
     "policies": "Policies",
     "policyLinks": ["Privacy Policy", "Terms of Service", "Insurance Policy"],
     "social": "Social Media",
-    "copyright": "Copyright © 2024 Powered by CodeBox."
+    "copyright": "Copyright ©{{year}} Powered by CodeBox."
   }
 
 

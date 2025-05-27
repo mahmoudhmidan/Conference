@@ -11,6 +11,7 @@ import { useTranslation } from 'react-i18next';
 
 export default function Footer() {
   const { t } = useTranslation();
+  const year = new Date().getFullYear();
 
   const contentOfFooter = [
     {
@@ -51,7 +52,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer data-testid="footer" className="flex flex-col bg-teal-50 text-black p-8 text-center">
+    <footer data-testid="footer" className="flex flex-col bg-gradient-to-b from-[#E6F4EA] via-[#F4FBF7] to-[#FFFFFF] text-black p-8 text-center">
       <div className="flex xl:flex-row flex-col justify-center gap-8 w-full">
         {contentOfFooter.map((item, index) => (
           <div key={index} className="w-full sm:w-1/2 md:w-1/4 px-4 mb-6">
@@ -104,7 +105,7 @@ export default function Footer() {
       </div>
       <hr className="w-full border-t border-gray-300 mt-8" />
       <p className="text-sm text-center mt-4 text-gray-500">
-        {t('footer.copyright')}
+       {t('footer.copyright', { year })}
       </p>
     </footer>
   );
