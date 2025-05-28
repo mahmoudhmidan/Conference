@@ -24,7 +24,7 @@ export default function Services() {
     <div id='services' className='p-12'>
     
       <div className='text-center mb-12 max-w-2xl mx-auto'>
-        <h2 className='text-3xl font-bold bg-gradient-to-r from-[#2E7D59] to-[#4FAF7A] bg-clip-text text-transparent mb-4'>{t('services.title')}</h2>
+        <h2 className='lg:text-3xl md:text-xs font-bold bg-gradient-to-r from-[#2E7D59] to-[#4FAF7A] bg-clip-text text-transparent mb-4'>{t('services.title')}</h2>
         <p className='text-gray-600'>{t('services.description')}</p>
       </div>
 
@@ -40,10 +40,10 @@ export default function Services() {
               <div className='bg-gradient-to-r from-[#3fb297] to-[#6ee5cb]  hover:from-[#73ce9f] hover:to-[#3f9a92] p-3 rounded-full mb-3'>
                 <img src={src} className=' w-10 ' alt='' />
               </div>
-              <h3 className='text-lg font-bold text-green-900 mb-1'>
+              <h3 className='  lg:text-lg text-[16px] font-bold text-green-900 mb-1'>
                 {t(`services.items.${service.id}.name`)}
               </h3>
-              <p className='text-gray-600 text-sm'>
+              <p className='text-gray-600 lg:text-sm text-[12px] leading-snug '>
                 {t(`services.items.${service.id}.text`)}
               </p>
             </div>

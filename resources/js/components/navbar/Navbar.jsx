@@ -104,12 +104,16 @@ const Navbar = forwardRef((props, ref) => {
       </div>
 
       {/* Mobile Menu */}
-      <div 
-        role='menu-icon' 
-        className={`absolute xl:hidden w-full z-50 top-28 rounded-md left-0 bg-white flex flex-col items-center gap-6 
-        transform transition-transform ${isMenuOpen ? 'opacity-100' : 'opacity-0'}`}
-        style={{ transform: 'transform 0.3s ease, opacity 0.3s ease' }}
-      >
+    <div 
+      role="menu-icon"
+      className={`
+        absolute xl:hidden w-full z-30 top-28 left-0 
+        bg-white flex flex-col items-center gap-2
+        origin-top transform transition-all duration-500 
+        ${isMenuOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0 pointer-events-none'}
+      `}
+>
+
         {NavbarLinks.map(links => (
           <li className='list-none w-full text-center p-4 transition-all cursor-pointer' key={links.id}>
             {/* handle scroll */}
