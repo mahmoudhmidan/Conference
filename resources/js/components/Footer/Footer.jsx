@@ -4,7 +4,6 @@ import {
   FaSquareInstagram,
   FaSquareXTwitter,
   FaSquareFacebook,
-  
 } from 'react-icons/fa6';
 import { FaLinkedin } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
@@ -16,28 +15,23 @@ export default function Footer() {
   const contentOfFooter = [
     {
       logo: img,
-      text: t('footer.description')
+      text: t('footer.description'),
     },
     {
       title: t('footer.company'),
-      links: [
-        t('footer.links.home'),
-        t('footer.links.about'),
-        t('footer.links.services'),
-      
-      ]
+      links: [t('footer.links.home'), t('footer.links.about'), t('footer.links.services')],
     },
     {
       title: t('footer.contact'),
       links: [
         t('footer.contactList.email'),
         t('footer.contactList.phone'),
-        t('footer.contactList.address')
-      ]
+        t('footer.contactList.address'),
+      ],
     },
     {
       title: t('footer.policies'),
-      links: t('footer.policyLinks', { returnObjects: true })
+      links: t('footer.policyLinks', { returnObjects: true }),
     },
     {
       title: t('footer.social'),
@@ -46,36 +40,41 @@ export default function Footer() {
         { icon: <FaSquareFacebook />, label: 'Facebook' },
         { icon: <FaSquareInstagram />, label: 'Instagram' },
         { icon: <FaLinkedin />, label: 'LinkedIn' },
-        { icon: <FaSquareXTwitter />, label: 'Twitter' }
-      ]
-    }
+        { icon: <FaSquareXTwitter />, label: 'Twitter' },
+      ],
+    },
   ];
 
   return (
-    <footer data-testid="footer" className="flex flex-col bg-gradient-to-b from-[#E6F4EA] via-[#F4FBF7] to-[#FFFFFF] text-black p-8 text-center">
-      <div className="flex xl:flex-row flex-col justify-center gap-8 w-full">
+    <footer className="bg-gradient-to-b from-[#E6F4EA] via-[#F4FBF7] to-white text-black pt-12 px-6 sm:px-10 lg:px-20">
+      <div className="flex flex-wrap justify-between gap-y-10">
         {contentOfFooter.map((item, index) => (
-          <div key={index} className="w-full sm:w-1/2 md:w-1/4 px-4 mb-6">
-            {/* Logo and text */}
+          <div
+            key={index}
+            className="w-full sm:w-1/2 lg:w-1/4 xl:w-[18%] min-w-[180px] px-2"
+          >
+            {/* Logo & Description */}
             {item.logo && (
-              <div className="flex flex-col items-start justify-start mt-[-3rem]">
-                <img src={item.logo} alt="Logo" className=" mr-[-2rem]" />
-                <p className="text-sm text-start text-gray-600 mt-[-4rem]">{item.text}</p>
+              <div className="flex flex-col gap-3">
+                <img src={item.logo} alt="Logo" className="w-28 h-auto" />
+                <p className="text-gray-600 text-sm leading-relaxed">{item.text}</p>
               </div>
             )}
 
-            {/* Title */}
+            {/* Section Title */}
             {item.title && (
-              <h3 className="font-semibold text-start text-lg mb-2">{item.title}</h3>
+              <h3 className="font-semibold text-lg text-gray-800 mb-3">
+                {item.title}
+              </h3>
             )}
 
-            {/* Links */}
+            {/* Links or Socials */}
             {item.links && (
               <div
                 className={`${
                   item.isSocialMedia
-                    ? 'flex flex-row items-center gap-3'
-                    : 'flex flex-col text-start items-start'
+                    ? 'flex flex-row items-center gap-4'
+                    : 'flex flex-col gap-2'
                 }`}
               >
                 {item.links.map((link, linkIndex) =>
@@ -83,7 +82,7 @@ export default function Footer() {
                     <a
                       key={linkIndex}
                       href="#"
-                      className="text-sm font-medium text-gray-600 hover:text-gray-800 mb-2"
+                      className="text-sm text-gray-600 hover:text-black transition duration-200"
                     >
                       {link}
                     </a>
@@ -92,7 +91,7 @@ export default function Footer() {
                       key={linkIndex}
                       href="#"
                       aria-label={link.label}
-                      className="text-gray-600 text-3xl hover:text-gray-800"
+                      className="text-2xl text-gray-500 hover:text-black transition duration-200"
                     >
                       {link.icon}
                     </a>
@@ -103,9 +102,11 @@ export default function Footer() {
           </div>
         ))}
       </div>
-      <hr className="w-full border-t border-gray-300 mt-8" />
-      <p className="text-sm text-center mt-4 text-gray-500">
-       {t('footer.copyright', { year })}
+
+      <hr className="mt-10 border-gray-300" />
+
+      <p className="text-center text-sm text-gray-500 py-6">
+        {t('footer.copyright', { year })}
       </p>
     </footer>
   );
