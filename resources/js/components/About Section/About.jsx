@@ -20,7 +20,7 @@ export default function About() {
   ];
 
   return (
-    <section id='about' className="flex flex-col md:flex-row gap-10 items-start px-6 py-16 bg-white">
+    <section id='about' className="flex flex-col md:flex-row gap-10 items-start md:items-center  py-16 bg-white">
       
      
       <div className="flex lg:flex-row flex-col items-center gap-4">
@@ -43,14 +43,14 @@ export default function About() {
         <h2 className="text-3xl font-bold bg-gradient-to-r from-[#2E7D59] to-[#4FAF7A] bg-clip-text text-transparent">
           {t('about.title')}
         </h2>
-        <p className="text-gray-600  leading-snug text-lg max-w-xl">
+        <p className="text-gray-600    md:leading-relaxed leading-snug lg:text-lg md:text-[12px] max-w-xl">
           {t('about.description')}
         </p>
 
        
-        <ul className="flex flex-wrap flex-row">
+        <ul className="flex flex-wrap lg:flex-row flex-col ">
           {features.map((feature, idx) => (
-            <li key={idx} className="flex items-center w-1/2 mb-8 text-gray-700">
+            <li key={idx} className="flex lg:items-center lg:w-1/2  md:w-full lg:mb-8 mb-4  lg:text-lg text-[12px] leading-relaxed text-gray-700">
               <FaCheckCircle className="w-5 h-5  text-[#3fb297] hover:text-[#3f9a92]  mr-2 ml-2" />
               {feature}
             </li>

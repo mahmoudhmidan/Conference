@@ -25,43 +25,30 @@ export default function Map() {
 
     
       <div className="w-full lg:w-1/2 space-y-6 text-start">
-        <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#2E7D59] to-[#4FAF7A] bg-clip-text text-transparent">{t('map.title')}</h2>
+        <h2 className="lg:text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#2E7D59] to-[#4FAF7A] bg-clip-text text-transparent">{t('map.title')}</h2>
         
-        <p className="text-gray-700 leading-relaxed text-base md:text-lg">
+        <p className="text-gray-700 leading-relaxed lg:text-base text-sm  ">
           {t('map.description')}
         </p>
 
-        <ul className="space-y-4 text-gray-800 text-base md:text-lg">
-  <li className="flex items-center">
-    <FaMapMarkerAlt className="text-emerald-700 ml-2 mr-2" />
-    {t('map.location')}
-  </li>
-  <li className="flex items-center">
-    <FaClock className="text-emerald-700 ml-2 mr-2" />
-    {t('map.hours')}
-  </li>
-  <li className="flex items-center">
-    <FaPhone className="text-emerald-700 ml-2 mr-2" />
-    <a
-      href={`tel:${t('map.phone')}`}
-      dir="ltr"
-      className="text-emerald-700 hover:underline ltr:inline rtl:inline-block"
-    >
-      {t('map.phone')}
-    </a>
-  </li>
-  <li className="flex items-center">
-    <FaEnvelope className="text-emerald-700 ml-2 mr-2" />
-    <a
-      href={`mailto:${t('map.email')}`}
-      dir="ltr"
-      className="text-emerald-700 hover:underline ltr:inline rtl:inline-block"
-    >
-      {t('map.email')}
-    </a>
-  </li>
-</ul>
-
+        <ul className="space-y-4 text-gray-800 ">
+          <li className="flex items-center lg:text-base text-[12px] ">
+            <FaMapMarkerAlt className="text-emerald-700 ml-2 mr-2" />
+            {t('map.location')}
+          </li>
+          <li className="flex items-center lg:text-base text-[12px] ">
+            <FaClock className="text-emerald-700 ml-2 mr-2" />
+            {t('map.hours')}
+          </li>
+          <li className="flex items-center lg:text-base text-[12px]">
+            <FaPhone className="text-emerald-700 ml-2 mr-2" />
+            {t('map.phone')}
+          </li>
+          <li className="flex items-center lg:text-base text-[12px]">
+            <FaEnvelope className="text-emerald-700 ml-2 mr-2" />
+            {t('map.email')}
+          </li>
+        </ul>
       </div>
     </section>
   );
