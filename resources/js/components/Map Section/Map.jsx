@@ -31,37 +31,6 @@ export default function Map() {
           {t('map.description')}
         </p>
 
-        <ul className="space-y-4 text-gray-800 text-base md:text-lg">
-  <li className="flex items-center">
-    <FaMapMarkerAlt className="text-emerald-700 ml-2 mr-2" />
-    {t('map.location')}
-  </li>
-  <li className="flex items-center">
-    <FaClock className="text-emerald-700 ml-2 mr-2" />
-    {t('map.hours')}
-  </li>
-  <li className="flex items-center">
-    <FaPhone className="text-emerald-700 ml-2 mr-2" />
-    <a
-      href={`tel:${t('map.phone')}`}
-      dir="ltr"
-      className="text-emerald-700 hover:underline ltr:inline rtl:inline-block"
-    >
-      {t('map.phone')}
-    </a>
-  </li>
-  <li className="flex items-center">
-    <FaEnvelope className="text-emerald-700 ml-2 mr-2" />
-    <a
-      href={`mailto:${t('map.email')}`}
-      dir="ltr"
-      className="text-emerald-700 hover:underline ltr:inline rtl:inline-block"
-    >
-      {t('map.email')}
-    </a>
-  </li>
-</ul>
-
         <ul className="space-y-4 text-gray-800 ">
           <li className="flex items-center lg:text-base text-[12px] ">
             <FaMapMarkerAlt className="text-emerald-700 ml-2 mr-2" />
