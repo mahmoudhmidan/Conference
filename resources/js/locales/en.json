@@ -63,10 +63,10 @@
   "map": {
     "title": "Contact Us",
     "description": "We are always here to serve you. Feel free to reach out to us through the following channels.",
-    "location": "Baghdad - Palestine Street - Near the Court",
+    "location": "Trading city blook A17 -120M St Erbil-Iraq",
     "hours": "Sunday to Thursday, 9:00 AM - 4:00 PM",
-    "phone": "0770 000 0000",
-    "email": "contact@lawfirm.com"
+    "phone": "+964 770 232 1705",
+    "email": "info@alsardrilaw.com"
   },
   "contact": {
     "title": "Contact Us",
@@ -87,9 +87,9 @@
    
   },
     "contactList": {
-      "email": "Email: support@example.com",
-      "phone": "Phone: +1 123 456 7890",
-      "address": "Address: 123 Main Street, City, Country"
+      "email": "Email: info@alsardrilaw.com",
+      "phone": "Phone: +964 770 232 1705",
+      "address": "Trading city blook A17 -120M St Erbil-Iraq"
     },
     "policies": "Policies",
     "policyLinks": ["Privacy Policy", "Terms of Service", "Insurance Policy"],

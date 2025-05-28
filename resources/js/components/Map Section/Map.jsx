@@ -11,13 +11,15 @@ export default function Map() {
       
       <div className="w-full lg:w-1/2 h-72 sm:h-80 md:h-96 rounded-lg overflow-hidden shadow-lg">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d103029.21861367868!2d44.08488118277208!3d36.19907494292162!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x400722fe13443461%3A0x3e01d63391de79d1!2z2KfYsdio2YrZhNiMINij2LHYqNmK2YQg2YXYrdin2YHYuNip!5e0!3m2!1sar!2siq!4v1748124312422!5m2!1sar!2siq"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13290.578609308866!2d44.0643311!3d36.2119484!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x400722d0f0b8d9c1%3A0x0!2zMzbCsDEyJzQzLjAiTiA0NMKwMDMnNTEuNiJF!5e0!3m2!1sen!2siq!4v1716899999999!5m2!1sen!2siq"
           width="100%"
           height="100%"
           style={{ border: 0 }}
           allowFullScreen=""
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
+          title="Company Location on Google Maps"
+          aria-label="Map showing company location"
         />
       </div>
 
