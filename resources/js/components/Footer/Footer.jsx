@@ -105,9 +105,11 @@ export default function Footer() {
 
       <hr className="mt-10 border-gray-300" />
 
-      <p className="text-center text-sm text-gray-500 py-6">
-        {t('footer.copyright', { year })}
-      </p>
+<div className="w-full flex justify-center mt-4">
+  <p className="text-center text-sm text-gray-500 py-6">
+    {t('footer.copyright', { year })}
+  </p>
+</div>
     </footer>
   );
 }
