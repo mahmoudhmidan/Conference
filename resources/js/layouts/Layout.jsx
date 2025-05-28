@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Navbar from '../components/navbar/Navbar';
 import Footer from '../components/Footer/Footer';
 import { useTranslation } from 'react-i18next';
-
+import BackToTop from '../components/common/BackToTop';
 const Layout = ({ children }) => {
     const { i18n } = useTranslation();
 
@@ -17,6 +17,7 @@ const Layout = ({ children }) => {
         <div>
             <Navbar />
             <main>{children}</main>
+              <BackToTop/>
             <Footer />
         </div>
     );
