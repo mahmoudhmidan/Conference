@@ -35,7 +35,7 @@ export default function About() {
             </div>
           ))}
         </div>
-        <img src={img} alt="About" className="lg:w-[30rem] lg:h-[550px] object-cover  rounded-xl shadow-md" />
+        <img src={img} alt="About" className="lg:w-[30rem] lg:h-[550px] object-cover  shadow-lg rounded-xl " />
       </div>
 
      
