@@ -9,7 +9,7 @@
   }
   ,"about": {
   "title": "About Us",
-  "description": "At Adala Legal Office, we believe that justice is a right for all. We are dedicated to providing comprehensive legal services with high quality and professional standards. Our areas of expertise include criminal cases, civil lawsuits, legal consultations, and legal representation before all courts and official institutions. Our team includes a select group of experienced lawyers and consultants united by a common goal: to defend our clients’ rights and offer effective legal solutions tailored to each case.",
+  "description": "At our Office, we believe that justice is a right for all. We are dedicated to providing comprehensive legal services with high quality and professional standards. Our areas of expertise include criminal cases, civil lawsuits, legal consultations, and legal representation before all courts and official institutions. Our team includes a select group of experienced lawyers and consultants united by a common goal: to defend our clients’ rights and offer effective legal solutions tailored to each case.",
   "button": "Book a Consultation",
   "stats": {
     "cases": "Successful Cases",
@@ -77,8 +77,8 @@
     "send": "Send Message"
   },
    "footer": {
-    "description": "At Adala Legal Office, we believe that justice is a right for all.",
-    "company": "Company",
+    "description": "At our Office we believe that justice is a right for all.",
+    "company": "Office",
     "contact": "Contact Us",
    "links": {
     "home": "Home",
