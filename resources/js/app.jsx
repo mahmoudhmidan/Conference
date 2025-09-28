@@ -13,16 +13,16 @@ createInertiaApp({
     title: (title) => `${title} - ${appName}`,
     
     resolve: (name) =>
-        resolvePageComponent(
-            `./pages/${name}.jsx`,
-            import.meta.glob('./pages/**/*.jsx')
-        ),
+    resolvePageComponent(
+        `./pages/${name}.jsx`,
+        import.meta.glob('./pages/**/*.jsx')
+    ),
     
         setup({ el, App, props }) {
             const root = createRoot(el);   
-              i18n.changeLanguage('ar');
-              document.documentElement.lang = 'ar';
-              document.documentElement.dir = 'rtl';
+                        i18n.changeLanguage('en');
+                document.documentElement.lang = 'en';
+                document.documentElement.dir = 'ltr';
            
             console.log('props.page:', props.initialPage.component)
 
